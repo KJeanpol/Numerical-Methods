@@ -46,12 +46,11 @@ def muller(funcion, x0, x1, x2, tol, maxIter):
         div = b + b*(math.sqrt(abs(disc)))
         xn = x2 - ((2*c)/div)
         err = abs(f.subs({"x": xn}))
-        print("Llegue")
-        print(err)
-        print(xn)
         if (err <= tol):
-            
-            return
+            error.append(err)
+            iteraciones.append(iter)
+            matplotlib.pyplot.plot(iteraciones, error)
+            return [float(xn),iter,float(err)]
         x0Dist = abs(xn - x0)
         x1Dist = abs(xn - x1)
         x2Dist = abs(xn - x2)
@@ -60,6 +59,8 @@ def muller(funcion, x0, x1, x2, tol, maxIter):
             x0 = (x2)
         elif (x1Dist > x2Dist and x1Dist > x0Dist):
             x1 = (x2)
+        error.append(err)
+        iteraciones.append(iter)
         x2 = xn
         
         
