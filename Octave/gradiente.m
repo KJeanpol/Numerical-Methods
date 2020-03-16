@@ -1,7 +1,8 @@
-function gra = gradiente(f,variables)
-  for var in variables
-    disp("Error: Division by zero");
-    syms var;
+function gradienteR=gradiente(funcion,variables)
+  pkg load symbolic
+  for n=1: length(variables)
+    p=variables(n)
+    syms p;
   endfor
-  gra=gradient(f, variables)
+  gradienteR = gradient(funcion, variables) 
 endfunction
