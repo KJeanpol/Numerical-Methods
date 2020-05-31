@@ -16,5 +16,6 @@ function X = backSubstitution(A, B)
     else
       disp("Error: division by zero");
     endif
+    k
   endfor
 endfunction
