@@ -1,16 +1,19 @@
-function [L, U] = lu(X)
+function [L, U, Xk] = lu(X,B)
   n = length(X);
   L = eye(n);
   U = X;
   % For each row of matrix X
   for i=1:n
+
     pivot = U(i, i);
     pivotRow = U(i, :);
     % Multipliers' vector
     M = zeros(1, n - i);
     m = length(M);
     % Get each row multiplier
+
     for k=1:m
+
       M(k) = U(i + k, i) / pivot;
     endfor
     % Modify each row and each L subcolumn
@@ -19,4 +22,11 @@ function [L, U] = lu(X)
       L(i + k, i) = M(k);
     endfor
   endfor
+  p=inv(L)
+  Y=inv(L)*B;
+  Xk=inv(U)*Y;
+  
+  
 endfunction
+
+#[L,U,Xk]=lu([4 -2 1; 20 -7 12 ; -8 13 17],[11; 70; 17])
