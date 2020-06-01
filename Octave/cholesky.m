@@ -1,4 +1,4 @@
-function L = cholesky(A)
+function X = cholesky(A,b)
   n = length(A);
   L = zeros(n);
   for i=1:n
@@ -18,4 +18,7 @@ function L = cholesky(A)
       endif
     endfor
   endfor
+
+  X=inv(L*L')*b';
 endfunction
+#L=cholesky([25 15 -5 -10 ; 15 10 1 -7; -5 1 21 4; -10 -7 4 18],[-25 -19 -21 -5])

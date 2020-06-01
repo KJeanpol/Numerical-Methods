@@ -28,3 +28,5 @@ function [xk,error] = jacobi(A,b,x,tol,maxIter)
     endwhile
   
 endfunction
+
+[xk,error]=jacobi([5 1 1; 1 5 1; 1 1 5],[7 7 7],[0 0 0],0.0001,20)

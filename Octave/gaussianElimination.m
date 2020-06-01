@@ -19,3 +19,4 @@ function X = gaussianElimination(A, B)
   endfor
   X = backSubstitution(X(1:n, 1:n), X(:,n+1));
 endfunction
+##gaussSeidel([[5,1,1],[1,5,1],[1,1,5]],[7,7,7],[0,0,0],0.0001,5)

@@ -21,3 +21,6 @@ function [xk, gNorm] = nonLinearConjugateGradient(f, xk, maxIter)
     dk = dNext;
   endfor
 endfunction
+
+
+[xk, gNorm]=nonLinearConjugateGradient('((x-2)**4)+(x-2y)**2', [0 3], 13)

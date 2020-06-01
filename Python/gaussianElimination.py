@@ -27,7 +27,7 @@ def gaussianElimination(A,B):
             X[i + k] = X[i + k] - pivotRow*M[k-1][k]
             
     X= backSubstitution(X[:,[0,n-1]],X[:,[n]])
-    print(X)
+    return X
 
 
 
@@ -37,7 +37,6 @@ def backSubstitution(A,B):
     X=np.zeros((n,1))
     X[n-1]=B[n-1]/A[n-1][n-1]
     for k in range(n-2,n-1):
-        print(((A[k][k+1])*(X[k+1][k]))/(A[k][k]))
         div=A[k][k]
         if (div!=0):
              X[k][k]=int(((B[k][k])-((A[k][k+1])*(X[k+1][k])))/(A[k][k]))
@@ -47,4 +46,4 @@ def backSubstitution(A,B):
     return X
 
 #gaussSeidel([[5,1,1],[1,5,1],[1,1,5]],[7,7,7],[0,0,0],0.0001,5)   
-# gaussianElimination([[0.03, 58.9] ,[ 5.31, -6.10]], [[59.2],[47]])
+#gaussianElimination([[0.03, 58.9] ,[ 5.31, -6.10]], [[59.2,47]])

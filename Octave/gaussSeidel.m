@@ -1,17 +1,4 @@
 function [xk,error] = gaussSeidel(A,b,x,tol,maxIter)
-  % Bisection Method
-  % Iuts:
-  %   - f is a polinomial expression introduced as a symbolic expression
-  %   - a and b are [a, b]
-  %   - tol is the tolerance
-  % Outputs:
-  %   - xn is the solution
-  %   - err is the error
-  %   - iter is the amount of completed iterations (-1 if IntervalError)
-  %   - fx is f(x)
-  % Errors:
-  %   - IntervalError: the specified interval does not contain the zero
-
     D=diag(diag(A));
     U=triu(A,1);
     L=tril(A,-1);
@@ -28,3 +15,5 @@ function [xk,error] = gaussSeidel(A,b,x,tol,maxIter)
     endwhile
   
 endfunction
+
+#[xk,error]=gaussSeidel([5 1 1 ; 1 5 1; 1 1 5],[7 7 7],[0 0 0],0.0001,5)
