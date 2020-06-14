@@ -9,7 +9,7 @@ function [xk,error] = gaussSeidel(A,b,x,tol,maxIter)
     suma=L+D;
     inversa=inv(suma);
     while(k<maxIter && error>tol)
-        xk=(-inversa*U*xk)+inversa*b;
+        xk=(-inversa*U*xk)+inversa*b
         k=k+1;
         error=norm(xk);
     endwhile

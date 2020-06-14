@@ -7,15 +7,19 @@ function result = lagrange(x, y, var)
   % Output:
 	%   - result is the value obtained at evaluating var in the Lagrange's
   %   - interpolation polynomial
+  %   example lagrange([-2 0 1], [0 1 -1], x)
   n = length(x);
   result = 0;
   for k = 1 : n
     product = 1;
+    k
     for j = 1 : n
+      j
       if j ~= k
         product = product * (var - x(j))/(x(k) - x(j));
       endif
     endfor
     result = result + product * y(k);
   endfor
+  result=expand(result)
 endfunction

@@ -19,10 +19,9 @@ function [L, U, Xk] = lu(X,B)
     % Modify each row and each L subcolumn
     for k=1:m
       U(i + k, :) = U(i + k, :) - pivotRow*M(k);
-      L(i + k, i) = M(k);
+      L(i + k, i) = M(k)
     endfor
   endfor
-  p=inv(L)
   Y=inv(L)*B;
   Xk=inv(U)*Y;
   
