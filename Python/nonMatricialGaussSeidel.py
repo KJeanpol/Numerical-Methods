@@ -12,24 +12,23 @@ def nonMatricialGaussSeidel(A,b,x0,tol):
     x=x0
     n=len(A[0])
     k=0
-    
+    xant=x
     while(error>tol):
-        xant=x
+        
         for i in range(0,n):
             suma=0;
-            for j in range(0,i-1):
+            for j in range(0,n):
                 
-                suma=suma+A[i][j]*x[j]  
-            for j in range(0,i-1):
-                
-                suma=suma+A[i][j]*xant[j]  
-            
-            x[i]=(1/A[i][i])*(b[i]-suma)
+                suma=suma+A[i][j]*x[j]
+            for j in range(0,n):
+                suma=suma+A[i][j]*xant[j]      
+            x[i-1]=(1/A[i][i])*(b[i]-suma)
         k=k+1
-        pp=np.array(xant).transpose()-np.array(x).transpose()
-        error=np.linalg.norm(pp)
-    print(x)    
+        err=np.array(x).transpose()-np.array(xant).transpose()
+        print(err)
+        error=np.linalg.norm(err)  
+        xant=x;
+    print(x)
     return [x,k]
-
     
 nonMatricialGaussSeidel([[5, 1, 1], [1, 5, 1],[1, 1, 5]],[7, 7, 7],[0, 0, 0],0.0001)
