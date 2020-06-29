@@ -44,6 +44,6 @@ def newton_polynomial(x_data, y_data, x):
 
     return p
 
-print (newton_polynomial(x,y,x))
+print (newton_polynomial([-2, 0, 1],[0, 1, -1],x))
 
   
